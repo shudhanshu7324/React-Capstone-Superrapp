@@ -4,11 +4,6 @@ import './MovieBox.css'
 const MovieBox = ({ category, selectedMovies, setSelectedMovies }) => {
 
     const handleSelection = (category) => () => {
-        // if(selectedMovies.includes(category)){
-        //     setSelectedMovies(selectedMovies.filter((movie) => movie !== category))
-        // } else {
-        //     setSelectedMovies([...selectedMovies, category])
-        // }
         if(selectedMovies.find((movie) => movie.id === category.id)){
           setSelectedMovies(selectedMovies.filter((movie)=>movie.id !== category.id));
         }else{
@@ -16,11 +11,14 @@ const MovieBox = ({ category, selectedMovies, setSelectedMovies }) => {
         }
     }
 
+    const isSelected = selectedMovies.some((movie) => movie.id === category.id);
+
   return (
     <div>
     <div
       style={{
         backgroundColor: category.bgColor,
+        border: isSelected ? "5px solid green" : "5px solid",
       }}
       onClick={handleSelection(category)}
       className="box"

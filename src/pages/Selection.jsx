@@ -127,7 +127,7 @@ const Selection = () => {
           ))}
         </div>
 
-        <div className="err">
+        <div className="err" >
           {selectedMovies.length < 3 && (
             <p
               style={{
