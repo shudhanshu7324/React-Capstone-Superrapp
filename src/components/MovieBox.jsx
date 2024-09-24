@@ -4,10 +4,15 @@ import './MovieBox.css'
 const MovieBox = ({ category, selectedMovies, setSelectedMovies }) => {
 
     const handleSelection = (category) => () => {
-        if(selectedMovies.includes(category)){
-            setSelectedMovies(selectedMovies.filter((movie) => movie !== category))
-        } else {
-            setSelectedMovies([...selectedMovies, category])
+        // if(selectedMovies.includes(category)){
+        //     setSelectedMovies(selectedMovies.filter((movie) => movie !== category))
+        // } else {
+        //     setSelectedMovies([...selectedMovies, category])
+        // }
+        if(selectedMovies.find((movie) => movie.id === category.id)){
+          setSelectedMovies(selectedMovies.filter((movie)=>movie.id !== category.id));
+        }else{
+          setSelectedMovies([...selectedMovies,category])
         }
     }
 
